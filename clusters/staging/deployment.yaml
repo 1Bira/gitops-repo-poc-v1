@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-api-deployment-gitops-v1
+spec:
+  selector:
+    matchLabels:
+      app: fast-api-gitops
+  template:
+    metadata:
+      labels:
+        app: fast-api-gitops
+    spec:
+      containers:
+      - name: myapp
+        image: 1bira/fastapi-simple-app:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
+
+
+
+
+
